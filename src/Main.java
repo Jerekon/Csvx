@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
-    public static File textFileMain = new File("basket.bin");
+    public static File textFileMain = new File("basket.txt");
     public static String[] products = {"Milk", "Bred", "Onion"};
     public static int[] prices = {339, 14, 80};
 
@@ -21,6 +21,7 @@ public class Main {
             System.out.print("Basket empty. ");
             basket = new Basket(products, prices);
         }
+        ClientLog log = new ClientLog ();
         groceryList(basket);
         while (true) {
             System.out.println("\ntake the product and quantity separated by a space " +
@@ -29,6 +30,7 @@ public class Main {
             String input = scanner.nextLine();
             if ("end".equals(input)) {
                 break;
+                log.log (productNumber,productCount);
             }
             String[] parts = input.split(" ");
             if (parts.length != 2) {
